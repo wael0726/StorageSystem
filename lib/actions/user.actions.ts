@@ -3,7 +3,9 @@
 import { createAdminClient, createSessionClient } from "@/lib/appwrite";
 import { appwriteConfig } from "@/lib/appwrite/config";
 import { Query, ID } from "node-appwrite";
+import { parseStringify } from "@/lib/utils";
 import { cookies } from "next/headers";
+//import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
 
 const getUserByEmail = async (email: string) => {
@@ -29,7 +31,7 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
   try {
     const session = await account.createEmailToken(ID.unique(), email);
 
-    return session.userId; // Renvoie directement l'userId comme accountId
+    return session.userId;
   } catch (error) {
     handleError(error, "Failed to send email OTP");
   }
@@ -57,12 +59,14 @@ export const createAccount = async ({
       {
         fullName,
         email,
-        accountId, // Enregistre l'accountId directement
+        avatar:
+          "https://static.vecteezy.com/system/resources/previews/044/013/661/non_2x/round-person-button-icon-account-and-my-page-button-vector.jpg",
+        accountId,
       },
     );
   }
 
-  return accountId; // Retourne l'accountId directement
+  return parseStringify({ accountId });
 };
 
 export const verifySecret = async ({
@@ -84,7 +88,7 @@ export const verifySecret = async ({
       secure: true,
     });
 
-    return { sessionId: session.$id };
+    return parseStringify({ sessionId: session.$id });
   } catch (error) {
     handleError(error, "Failed to verify OTP");
   }
@@ -104,7 +108,7 @@ export const getCurrentUser = async () => {
 
     if (user.total <= 0) return null;
 
-    return user.documents[0]; // Retourne directement l'utilisateur
+    return parseStringify(user.documents[0]);
   } catch (error) {
     console.log(error);
   }
@@ -127,12 +131,13 @@ export const signInUser = async ({ email }: { email: string }) => {
   try {
     const existingUser = await getUserByEmail(email);
 
+    // User exists, send OTP
     if (existingUser) {
       await sendEmailOTP({ email });
-      return { accountId: existingUser.accountId };
+      return parseStringify({ accountId: existingUser.accountId });
     }
 
-    return { accountId: null, error: "User not found" };
+    return parseStringify({ accountId: null, error: "User not found" });
   } catch (error) {
     handleError(error, "Failed to sign in user");
   }

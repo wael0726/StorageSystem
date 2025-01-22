@@ -7,10 +7,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <section className="hidden w-1/2 items-center justify-center bg-black p-10 lg:flex xl:w-2/5">
         <div className="flex max-h-[800px] max-w-[430px] flex-col justify-center items-center space-y-12">
           <Image
-            src="/assets/icons/logofireboxblack.png"
+            src="/assets/icons/cloudblack.png"
             alt="logo"
-            width={500}
-            height={170}
+            width={250}
+            height={70}
             className="h-auto"
           />
 
@@ -33,7 +33,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <section className="flex flex-1 flex-col items-center bg-white p-4 py-10 lg:justify-center lg:p-10 lg:py-0">
         <div className="mb-16 lg:hidden">
           <Image
-            src="/assets/icons/whiteboxlogo.png"
+            src="/assets/icons/cloud.jpg"
             alt="logo"
             width={224}
             height={82}

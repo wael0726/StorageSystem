@@ -18,6 +18,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createAccount } from "@/lib/actions/user.actions";
 import OtpModal from "@/components/OTPModal";
+import { signInUser } from "@/lib/actions/user.actions";
 
 type FormType = "sign-in" | "sign-up";
 
@@ -48,14 +49,19 @@ const AuthForm = ({ type }: { type: FormType }) => {
     setIsLoading(true);
     setErrorMessage("");
     try {
-      // Appel de l'action backend pour créer un compte
-      const userAccountId = await createAccount({
-        fullName: values.fullName || "",
-        email: values.email,
-      });
+      const user =
+        type === "sign-up"
+          ? await createAccount({
+              fullName: values.fullName || "",
+              email: values.email,
+            })
+          : await signInUser({ email: values.email });
 
-      // Utilisation de accountId directement
-      setAccountId(userAccountId);
+      if (user) {
+        setAccountId(user.accountId);
+      } else {
+        throw new Error("User creation/sign-in failed.");
+      }
     } catch {
       setErrorMessage("Failed to create account. Please try again.");
     } finally {
