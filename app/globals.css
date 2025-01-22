@@ -319,13 +319,13 @@
 
     /* Chart */
     .chart {
-        @apply flex items-center rounded-[20px] bg-brand p-5 text-white md:flex-col xl:flex-row !important;
+        @apply flex items-center rounded-[20px] bg-[#3B82F6] p-5 text-white md:flex-col xl:flex-row !important;
     }
     .chart-container {
         @apply mx-auto aspect-square w-[180px] text-white xl:w-[250px] !important;
     }
     .polar-grid {
-        @apply first:fill-white/20 last:fill-brand !important;
+        @apply first:fill-white/20 last:fill-blue !important;
     }
     .chart-details {
         @apply flex-1 items-start px-3 py-0 sm:px-5 lg:p-3 xl:pr-5 !important;
@@ -366,7 +366,7 @@
         @apply flex-center min-w-fit gap-4 !important;
     }
     .sign-out-button {
-        @apply flex-center h-[52px] min-w-[54px] items-center rounded-full bg-brand/10 p-0 text-brand shadow-none transition-all hover:bg-brand/20 !important;
+        @apply flex-center h-[52px] min-w-[54px] items-center rounded-full bg-[#3B82F6]/10 p-0 text-brand shadow-none transition-all hover:bg-[#3B82F6]/20 !important;
     }
 
     /* Mobile Navigation */
@@ -374,7 +374,7 @@
         @apply flex h-[60px] justify-between px-5 sm:hidden !important;
     }
     .header-user {
-        @apply my-3 flex items-center gap-2 rounded-full p-1 text-light-100 sm:justify-center sm:bg-brand/10 lg:justify-start lg:p-3 !important;
+        @apply my-3 flex items-center gap-2 rounded-full p-1 text-light-100 sm:justify-center sm:bg-[#3B82F6]/10 lg:justify-start lg:p-3 !important;
     }
     .header-user-avatar {
         @apply aspect-square w-10 rounded-full object-cover !important;
@@ -389,7 +389,7 @@
         @apply flex text-light-100 gap-4 w-full justify-start items-center h5 px-6 h-[52px] rounded-full !important;
     }
     .mobile-sign-out-button {
-        @apply h5 flex h-[52px] w-full items-center gap-4 rounded-full bg-brand/10 px-6 text-brand shadow-none transition-all hover:bg-brand/20 !important;
+        @apply h5 flex h-[52px] w-full items-center gap-4 rounded-full bg-[#3B82F6]/10 px-6 text-brand shadow-none transition-all hover:bg-[#3B82F6]/20 !important;
     }
 
     /* OTP Modal */
@@ -419,20 +419,20 @@
         @apply remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-5 py-7 sm:flex lg:w-[280px] xl:w-[325px] !important;
     }
     .sidebar-nav {
-        @apply h5 mt-9 flex-1 gap-1 text-brand !important;
+        @apply h5 mt-9 flex-1 gap-1 text-blue !important;
     }
     .sidebar-nav-item {
         @apply flex text-light-100 gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center h5 lg:px-[30px] h-[52px] lg:rounded-full !important;
     }
     .sidebar-user-info {
-        @apply mt-4 flex items-center justify-center gap-2 rounded-full bg-brand/10 p-1 text-light-100 lg:justify-start lg:p-3 !important;
+        @apply mt-4 flex items-center justify-center gap-2 rounded-full bg-[#3B82F6]/10 p-1 text-light-100 lg:justify-start lg:p-3 !important;
     }
     .sidebar-user-avatar {
         @apply aspect-square w-10 rounded-full object-cover !important;
     }
 
     .shad-active {
-        @apply bg-brand text-white shadow-drop-2 !important;
+        @apply bg-[#3B82F6] text-white shadow-drop-2 !important;
     }
 
     /* Sort */
@@ -445,7 +445,7 @@
 
     /* Thumbnail */
     .thumbnail {
-        @apply flex-center size-[50px] min-w-[50px] overflow-hidden rounded-full bg-brand/10;
+        @apply flex-center size-[50px] min-w-[50px] overflow-hidden rounded-full bg-[#3B82F6]/10;
     }
     .thumbnail-image {
         @apply size-full object-cover object-center !important;
